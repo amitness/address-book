@@ -52,7 +52,11 @@ class Application:
             print "No contacts in database."
 
     def search(self):
-        pass
+        name = raw_input("Enter the name: ")
+        if name in self.persons:
+            print self.persons[name]
+        else:
+            print "Contact not found."
 
     def getdetails(self):
         name = raw_input("Name: ")
