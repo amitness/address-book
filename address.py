@@ -29,11 +29,11 @@ class Application:
         self.database = database
         self.persons = {}
         if not os.path.exists(self.database):
-            f = open(self.database, 'w')
+            f = open(self.database, 'wb')
             pickle.dump({}, f)
             f.close()
         else:
-            with open(self.database, 'r') as db:
+            with open(self.database, 'rb') as db:
                 self.persons = pickle.load(db)
 
     def add(self):
