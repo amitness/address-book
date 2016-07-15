@@ -12,7 +12,7 @@ UI = '''
 '''
 
 
-class Person:
+class Person(object):
 
     def __init__(self, name=None, address=None, phone=None):
         self.name = name
@@ -23,7 +23,7 @@ class Person:
         return "{} {:>15} {:>15}".format(self.name, self.address, self.phone)
 
 
-class Application:
+class Application(object):
 
     def __init__(self, database):
         self.database = database
