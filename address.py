@@ -29,12 +29,12 @@ class Application(object):
         self.database = database
         self.persons = {}
         if not os.path.exists(self.database):
-            f = open(self.database, 'wb')
-            pickle.dump({}, f)
-            f.close()
+            file_pointer = open(self.database, 'wb')
+            pickle.dump({}, file_pointer)
+            file_pointer.close()
         else:
-            with open(self.database, 'rb') as db:
-                self.persons = pickle.load(db)
+            with open(self.database, 'rb') as person_list:
+                self.persons = pickle.load(person_list)
 
     def add(self):
         name, address, phone = self.getdetails()
