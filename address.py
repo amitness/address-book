@@ -111,6 +111,10 @@ def main():
             app.delete()
         elif choice == '6':
             app.reset()
+        elif choice == '7':
+            print "Exiting."
+        else:
+            print "Invalid choice."
 
 if __name__ == '__main__':
     main()
