@@ -41,52 +41,52 @@ class Application(object):
         if name not in self.persons:
             self.persons[name] = Person(name, address, phone)
         else:
-            print "Contact already present."
+            print("Contact already present.")
 
     def viewall(self):
         if self.persons:
-            print "{} {:>15} {:>15}".format('Name', 'address', 'Phone')
+            print("{} {:>15} {:>15}".format('Name', 'address', 'Phone'))
             for person in self.persons.values():
-                print person
+                print(person)
         else:
-            print "No contacts in database."
+            print("No contacts in database.")
 
     def search(self):
-        name = raw_input("Enter the name: ")
+        name = input("Enter the name: ")
         if name in self.persons:
-            print self.persons[name]
+            print(self.persons[name])
         else:
-            print "Contact not found."
+            print("Contact not found.")
 
     def getdetails(self):
-        name = raw_input("Name: ")
-        address = raw_input("Address: ")
-        phone = raw_input("Phone:")
+        name = input("Name: ")
+        address = input("Address: ")
+        phone = input("Phone:")
         return name, address, phone
 
     def update(self):
-        name = raw_input("Enter the name: ")
+        name = input("Enter the name: ")
         if name in self.persons:
-            print "Found. Enter new details."
+            print("Found. Enter new details.")
             name, address, phone = self.getdetails()
             self.persons[name].__init__(name, address, phone)
-            print "Successfully updated."
+            print("Successfully updated.")
         else:
-            print "Contact not found."
+            print("Contact not found.")
 
     def delete(self):
-        name = raw_input("Enter the name to delete: ")
+        name = input("Enter the name to delete: ")
         if name in self.persons:
             del self.persons[name]
-            print "Deleted the contact."
+            print("Deleted the contact.")
         else:
-            print "Contact not found in the app."
+            print("Contact not found in the app.")
 
     def reset(self):
         self.persons = {}
 
     def __del__(self):
-        with open(self.database, 'w') as db:
+        with open(self.database, 'wb') as db:
             pickle.dump(self.persons, db)
 
     def __str__(self):
@@ -97,8 +97,8 @@ def main():
     app = Application('contacts.data')
     choice = ''
     while choice != '7':
-        print app
-        choice = raw_input('Choose: ')
+        print(app)
+        choice = input('Choose: ')
         if choice == '1':
             app.add()
         elif choice == '2':
@@ -112,9 +112,9 @@ def main():
         elif choice == '6':
             app.reset()
         elif choice == '7':
-            print "Exiting."
+            print("Exiting.")
         else:
-            print "Invalid choice."
+            print("Invalid choice.")
 
 if __name__ == '__main__':
     main()
